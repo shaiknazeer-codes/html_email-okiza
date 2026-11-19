@@ -2,6 +2,7 @@
   "version": 2,
   "cleanUrls": true,
   "rewrites": [
+    { "source": "/api/send-email", "destination": "/api/send-email.js" },
     { "source": "/", "destination": "/email-sender/preview/preview.html" },
     { "source": "/preview", "destination": "/email-sender/preview/preview.html" },
     { "source": "/assets/(.*)", "destination": "/email-sender/assets/$1" },

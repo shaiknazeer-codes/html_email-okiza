@@ -210,12 +210,35 @@ Every template has been crafted according to strict email standards:
 
 ---
 
-## Interactive Preview Tool
+## Interactive Preview Tool & Live Email Dispatch
 
-To preview and test all templates on localhost:
+To preview and send real emails directly from your browser:
 
-1. Open [http://localhost:3000](http://localhost:3000) in your browser.
-2. Select **"★ Note from Founder & CEO"** or any other template.
-3. Test **Desktop (680px)**, **Tablet (768px)**, and **Mobile (385px)** responsive views.
-4. Customize your name, title, message, and button link in real time.
-5. Click **"Copy HTML"** to copy the ready-to-send HTML string to your clipboard.
+1. Open [http://localhost:3000](http://localhost:3000) (or your Vercel deployment URL).
+2. Select any template (e.g. **★ Note from Founder & CEO**).
+3. Customize the fields in the left sidebar with real names, text, and links.
+4. Click the **"Send Real Email 🚀"** button in the top navigation bar.
+5. In the modal:
+   - Enter the recipient's real email address.
+   - Enter your Resend API Key (`re_...`) from [resend.com/api-keys](https://resend.com/api-keys). The browser will securely remember it for next time.
+   - Click **"Send Email Now 🚀"**.
+6. The email will be dispatched in real time via Resend and delivered to the inbox!
+
+---
+
+## Real Email Sending API Endpoint (`/api/send-email`)
+
+The project includes a unified endpoint that works on both localhost and Vercel serverless functions:
+
+```bash
+curl -X POST https://your-site.vercel.app/api/send-email \
+  -H "Content-Type: application/json" \
+  -d '{
+    "to": "colleague@example.com",
+    "subject": "Hello from Okiza",
+    "html": "<h1>Welcome</h1>",
+    "apiKey": "re_your_resend_api_key"
+  }'
+```
+
+---
