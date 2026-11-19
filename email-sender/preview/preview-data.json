@@ -1,0 +1,133 @@
+{
+  "founder-message": {
+    "name": "★ Note from Founder & CEO",
+    "templateFile": "founder-message.html",
+    "data": {
+      "founderName": "Founder & CEO",
+      "founderTitle": "Founder & Chief Executive Officer",
+      "founderEmail": "founder@okiza.ai",
+      "founderNote": "I read and reply to every email personally. If you have any feedback, questions, or ideas for Okiza, just hit reply to this message.",
+      "recipientName": "Alex",
+      "subject": "A personal note from the founder of Okiza",
+      "message": "I noticed you recently started exploring Okiza. As the founder, I personally wanted to say thank you for giving us a try.<br><br>We built Okiza to solve a painful problem: traditional growth marketing is fragmented, slow, and reactive. With Okiza, our autonomous AI agents handle competitor monitoring, AI-search optimization (GEO), and multi-channel campaign creation so you can scale faster with clarity.<br><br>I would love to learn more about your brand and personally ensure our growth models are tuned to your exact goals. Would you be open to a quick 15-minute 1-on-1 walkthrough with me?",
+      "buttonText": "Schedule 15-Min Founder Chat",
+      "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/founder-meeting",
+      "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
+      "currentYear": "2026"
+    }
+  },
+  "general-notification": {
+    "name": "General Notification (Dark)",
+    "templateFile": "general-notification.html",
+    "data": {
+      "recipientName": "Alex Rivers",
+      "subject": "New Intelligence Alert Detected for Your Brand",
+      "message": "Okiza autonomous agents have detected 3 significant organic search rank changes and 2 new competitor advertising campaigns launched in the SaaS infrastructure category over the last 24 hours. A complete tactical response has been generated for your review.",
+      "buttonText": "View Intelligence Alert",
+      "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/dashboard",
+      "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
+      "currentYear": "2026"
+    }
+  },
+  "welcome": {
+    "name": "Welcome Onboarding",
+    "templateFile": "welcome.html",
+    "data": {
+      "recipientName": "Sarah Connor",
+      "subject": "Welcome to Okiza — The AI Growth Operating System",
+      "message": "Welcome to the future of autonomous growth marketing. Okiza unifies competitor intelligence, AI-search visibility (GEO), autonomous content generation, and multi-channel campaign execution into one unified command center.",
+      "buttonText": "Launch Growth Engine",
+      "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/dashboard",
+      "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
+      "currentYear": "2026"
+    }
+  },
+  "verification-code": {
+    "name": "Security Verification & OTP",
+    "templateFile": "verification-code.html",
+    "data": {
+      "recipientName": "Marcus Vance",
+      "subject": "Your Okiza Verification Code: 849-204",
+      "message": "We received an authentication request for your Okiza account. Enter the verification code below on the confirmation screen or click the button to authenticate instantly.",
+      "otpCode": "849-204",
+      "expiryMinutes": "10",
+      "buttonText": "Sign In to Okiza Directly",
+      "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/verify?code=849-204",
+      "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
+      "currentYear": "2026"
+    }
+  },
+  "growth-report": {
+    "name": "AI Growth & Competitor Digest",
+    "templateFile": "growth-report.html",
+    "data": {
+      "recipientName": "David Chen",
+      "subject": "Weekly AI Growth & Market Intelligence Digest",
+      "message": "Your weekly intelligence briefing is ready. Okiza agents monitored 12 competitor domains, tracked 450+ target search terms across traditional and LLM-based search engines (GEO), and drafted 4 high-ROI execution strategies.",
+      "buttonText": "Explore Growth Digest",
+      "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/dashboard",
+      "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
+      "currentYear": "2026"
+    }
+  },
+  "billing-receipt": {
+    "name": "Billing Receipt & Invoice",
+    "templateFile": "billing-receipt.html",
+    "data": {
+      "recipientName": "Elena Rostova",
+      "subject": "Your Okiza Invoice #INV-2026-0842",
+      "message": "Thank you for subscribing to Okiza. Your payment has been successfully processed and your workspace has uninterrupted access to all 7 autonomous growth agents and unlimited continuous monitoring.",
+      "invoiceId": "INV-2026-0842",
+      "planName": "Okiza Growth Pro (Annual)",
+      "paymentDate": "November 16, 2026",
+      "paymentMethod": "Mastercard ending in •••• 4242",
+      "billingAmount": "$249.00 USD",
+      "buttonText": "Download PDF Invoice",
+      "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/billing",
+      "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
+      "currentYear": "2026"
+    }
+  },
+  "password-reset": {
+    "name": "Password Reset",
+    "templateFile": "password-reset.html",
+    "data": {
+      "recipientName": "Jordan Blake",
+      "subject": "Reset your Okiza account password",
+      "message": "We received a request to reset your Okiza password. Click the button below to choose a new password. If you didn't ask to reset your password, you can safely ignore this email.",
+      "buttonText": "Reset Account Password",
+      "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/auth/reset?token=a8f9c2d1b7e4",
+      "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
+      "currentYear": "2026"
+    }
+  },
+  "team-invitation": {
+    "name": "Team Workspace Invitation",
+    "templateFile": "team-invitation.html",
+    "data": {
+      "recipientName": "Taylor Swift",
+      "subject": "Alex Rivers invited you to join Horizon Labs on Okiza",
+      "message": "You have been invited to collaborate with your growth team on Okiza. You will have full access to brand studios, competitor radar, and autonomous multi-agent marketing execution.",
+      "inviterName": "Alex Rivers (Founder)",
+      "workspaceName": "Horizon Labs HQ",
+      "roleName": "Growth Architect / Admin",
+      "buttonText": "Accept Invitation & Join Team",
+      "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/invite?token=invite_993817",
+      "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
+      "currentYear": "2026"
+    }
+  },
+  "general-notification-light": {
+    "name": "General Notification (Light Mode)",
+    "templateFile": "general-notification-light.html",
+    "data": {
+      "recipientName": "Morgan Lee",
+      "subject": "System Notice: Autonomous Agent Strategy Completed",
+      "message": "Your SEO & Content Agent has completed the comprehensive quarterly content refresh strategy. 14 high-impact landing pages have been mapped with updated citation structures for generative search engines.",
+      "buttonText": "Review Completed Strategy",
+      "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/dashboard",
+      "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
+      "currentYear": "2026"
+    }
+  }
+}
