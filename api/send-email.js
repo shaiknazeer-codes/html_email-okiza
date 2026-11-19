@@ -3,6 +3,9 @@
  * Works on Vercel Serverless Functions and local Node.js server.
  */
 
+const PUBLIC_ANIMATED_LOGO = 'https://raw.githubusercontent.com/shaiknazeer-codes/html_email-okiza/main/email-sender/assets/logo-animated.gif';
+const PUBLIC_WHITE_LOGO = 'https://raw.githubusercontent.com/shaiknazeer-codes/html_email-okiza/main/email-sender/assets/logo-white.png';
+
 async function handleSendEmail(reqBody, envApiKey) {
   const { to, subject, html, from, apiKey } = reqBody;
 
@@ -30,8 +33,16 @@ async function handleSendEmail(reqBody, envApiKey) {
     };
   }
 
-  // 3. Sender address (default to Resend free onboarding domain if not specified)
+  // 3. Sender address
   const fromAddress = from && from.trim() ? from.trim() : 'Okiza <onboarding@resend.dev>';
+
+  // 4. Normalize image URLs for email client compatibility
+  // Gmail/Outlook block data: base64 URIs and relative /assets paths.
+  // We guarantee all image sources point to the public HTTPS CDN!
+  let outgoingHtml = (html || '')
+    .replace(/src="data:image\/[^"]+"/g, `src="${PUBLIC_ANIMATED_LOGO}"`)
+    .replace(/src="\/assets\/logo-animated\.gif"/g, `src="${PUBLIC_ANIMATED_LOGO}"`)
+    .replace(/src="\/assets\/logo-white\.png"/g, `src="${PUBLIC_WHITE_LOGO}"`);
 
   try {
     const response = await fetch('https://api.resend.com/emails', {
@@ -44,7 +55,7 @@ async function handleSendEmail(reqBody, envApiKey) {
         from: fromAddress,
         to: [to.trim()],
         subject: subject || 'Notification from Okiza',
-        html: html || '<p>Hello from Okiza</p>'
+        html: outgoingHtml
       })
     });
 
@@ -54,7 +65,6 @@ async function handleSendEmail(reqBody, envApiKey) {
     if (!response.ok) {
       let errorMsg = data.message || 'Failed to send email through Resend.';
       
-      // Clear explanation for Resend's free testing restriction
       if (errorMsg.includes('only send testing emails to your own email address') || errorMsg.includes('verify a domain')) {
         errorMsg = 'Resend Free Account Rule: With onboarding@resend.dev, you can only send test emails to YOUR OWN registered Resend email address. To send to anyone else (other emails), you must verify a custom domain at resend.com/domains.';
       }
