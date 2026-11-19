@@ -46,10 +46,13 @@ const server = http.createServer((req, res) => {
     req.on('end', async () => {
       try {
         const json = JSON.parse(body || '{}');
+        console.log(`[Local Server] /api/send-email request received for: ${json.to}`);
         const result = await handleSendEmail(json, process.env.RESEND_API_KEY);
+        console.log(`[Local Server] /api/send-email result:`, result.status, result.body?.success ? 'SUCCESS' : result.body?.error);
         res.writeHead(result.status, { 'Content-Type': 'application/json; charset=UTF-8' });
         res.end(JSON.stringify(result.body));
       } catch (err) {
+        console.error(`[Local Server] /api/send-email error:`, err);
         res.writeHead(400, { 'Content-Type': 'application/json; charset=UTF-8' });
         res.end(JSON.stringify({ success: false, error: 'Malformed JSON payload: ' + err.message }));
       }

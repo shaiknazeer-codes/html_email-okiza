@@ -6,8 +6,11 @@
 async function handleSendEmail(reqBody, envApiKey) {
   const { to, subject, html, from, apiKey } = reqBody;
 
+  console.log(`\n[API /send-email] Attempting to send email to: "${to}" from: "${from}"`);
+
   // 1. Validate recipient
   if (!to || typeof to !== 'string' || !to.includes('@')) {
+    console.log('[API /send-email] Validation failed: Invalid email address');
     return {
       status: 400,
       body: { success: false, error: 'Please enter a valid recipient email address.' }
@@ -17,6 +20,7 @@ async function handleSendEmail(reqBody, envApiKey) {
   // 2. Validate API key
   const activeKey = (apiKey && apiKey.trim()) || envApiKey || process.env.RESEND_API_KEY;
   if (!activeKey || !activeKey.startsWith('re_')) {
+    console.log('[API /send-email] Validation failed: Missing or invalid API key');
     return {
       status: 400,
       body: {
@@ -45,28 +49,33 @@ async function handleSendEmail(reqBody, envApiKey) {
     });
 
     const data = await response.json();
+    console.log(`[API /send-email] Resend HTTP ${response.status}:`, JSON.stringify(data));
 
     if (!response.ok) {
-      // Friendly explanation for common Resend restrictions
       let errorMsg = data.message || 'Failed to send email through Resend.';
-      if (data.name === 'validation_error' && errorMsg.includes('domain')) {
-        errorMsg += ' Tip: For free Resend test accounts without a verified custom domain, use "onboarding@resend.dev" as From address, and send to the email address registered with your Resend account.';
+      
+      // Clear explanation for Resend's free testing restriction
+      if (errorMsg.includes('only send testing emails to your own email address') || errorMsg.includes('verify a domain')) {
+        errorMsg = 'Resend Free Account Rule: With onboarding@resend.dev, you can only send test emails to YOUR OWN registered Resend email address. To send to anyone else (other emails), you must verify a custom domain at resend.com/domains.';
       }
+
       return {
         status: response.status,
         body: { success: false, error: errorMsg, details: data }
       };
     }
 
+    console.log(`[API /send-email] Successfully delivered email! ID: ${data.id}`);
     return {
       status: 200,
       body: {
         success: true,
         id: data.id,
-        message: `Email successfully sent to ${to}!`
+        message: `Email successfully delivered to ${to}!`
       }
     };
   } catch (err) {
+    console.error('[API /send-email] Network / Fetch error:', err);
     return {
       status: 500,
       body: { success: false, error: err.message || 'Internal server error while dispatching email.' }
@@ -76,7 +85,6 @@ async function handleSendEmail(reqBody, envApiKey) {
 
 // Vercel Serverless Handler
 module.exports = async (req, res) => {
-  // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');

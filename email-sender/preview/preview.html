@@ -628,6 +628,9 @@
         <div class="form-group">
           <label class="form-label">Recipient Email Address (To) *</label>
           <input type="email" id="sendToEmail" class="form-input" placeholder="e.g. colleague@example.com or your email" required />
+          <div style="font-size:11px;color:#f59e0b;margin-top:4px;">
+            ⚠️ <strong>Resend Free Tier Rule:</strong> You can only send to the exact email address you used to register on Resend. To send to other people, add your domain at <a href="https://resend.com/domains" target="_blank" style="color:#f59e0b;text-decoration:underline;">resend.com/domains</a>.
+          </div>
         </div>
 
         <div class="form-group">
@@ -962,6 +965,12 @@
       statusEl.className = 'status-msg';
       statusEl.style.display = 'none';
 
+      const submitBtn = document.getElementById('submitSendBtn');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Send Email Now 🚀</span>';
+      }
+
       modal.classList.add('active');
     }
 
@@ -979,12 +988,14 @@
       if (!toEmail || !toEmail.includes('@')) {
         statusEl.className = 'status-msg error';
         statusEl.textContent = 'Please enter a valid recipient email address.';
+        statusEl.style.display = 'block';
         return;
       }
 
       if (!apiKey) {
         statusEl.className = 'status-msg error';
         statusEl.textContent = 'Please provide your Resend API key (starts with re_...). You can get one for free at resend.com/api-keys';
+        statusEl.style.display = 'block';
         return;
       }
 
@@ -1017,20 +1028,20 @@
         if (response.ok && data.success) {
           statusEl.className = 'status-msg success';
           statusEl.innerHTML = '<strong>✓ Email Sent Successfully!</strong><br>Check inbox of ' + toEmail + ' (Message ID: ' + (data.id || 'ok') + ')';
-          submitBtn.innerHTML = '<span>Sent! ✓</span>';
-          setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<span>Send Another 🚀</span>';
-          }, 3000);
+          statusEl.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Send Another Email 🚀</span>';
         } else {
           statusEl.className = 'status-msg error';
-          statusEl.textContent = data.error || 'Failed to dispatch email.';
+          statusEl.innerHTML = '<strong>Send Failed:</strong> ' + (data.error || 'Failed to dispatch email.');
+          statusEl.style.display = 'block';
           submitBtn.disabled = false;
           submitBtn.innerHTML = '<span>Try Again 🚀</span>';
         }
       } catch (err) {
         statusEl.className = 'status-msg error';
         statusEl.textContent = 'Network error connecting to /api/send-email: ' + err.message;
+        statusEl.style.display = 'block';
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<span>Try Again 🚀</span>';
       }
