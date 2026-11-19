@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/email-sender/preview/preview.html" },
+    { "source": "/preview", "destination": "/email-sender/preview/preview.html" },
+    { "source": "/assets/(.*)", "destination": "/email-sender/assets/$1" },
+    { "source": "/templates/(.*)", "destination": "/email-sender/templates/$1" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    }
+  ]
+}
