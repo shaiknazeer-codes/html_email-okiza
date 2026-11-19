@@ -1,6 +1,6 @@
 # Okiza HTML Email Templates Suite
 
-> **Premium, responsive, production-ready HTML email designs for Okiza — The AI Growth Operating System.**  
+> **Premium, responsive, production-ready HTML email designs for Okiza — The AI CMO.**  
 > Website: [https://okiza-frontend-a9l9.vercel.app/](https://okiza-frontend-a9l9.vercel.app/)
 
 ---

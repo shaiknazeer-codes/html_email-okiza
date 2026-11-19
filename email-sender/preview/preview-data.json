@@ -1,15 +1,15 @@
 {
   "founder-message": {
-    "name": "★ Note from Founder & CEO",
+    "name": "★ Note from Founder & CEO (The AI CMO)",
     "templateFile": "founder-message.html",
     "data": {
       "founderName": "Founder & CEO",
-      "founderTitle": "Founder & Chief Executive Officer",
+      "founderTitle": "Founder & Chief Executive Officer, Okiza — The AI CMO",
       "founderEmail": "founder@okiza.ai",
       "founderNote": "I read and reply to every email personally. If you have any feedback, questions, or ideas for Okiza, just hit reply to this message.",
       "recipientName": "Alex",
-      "subject": "A personal note from the founder of Okiza",
-      "message": "I noticed you recently started exploring Okiza. As the founder, I personally wanted to say thank you for giving us a try.<br><br>We built Okiza to solve a painful problem: traditional growth marketing is fragmented, slow, and reactive. With Okiza, our autonomous AI agents handle competitor monitoring, AI-search optimization (GEO), and multi-channel campaign creation so you can scale faster with clarity.<br><br>I would love to learn more about your brand and personally ensure our growth models are tuned to your exact goals. Would you be open to a quick 15-minute 1-on-1 walkthrough with me?",
+      "subject": "A personal note from the founder of Okiza — The AI CMO",
+      "message": "I noticed you recently started exploring Okiza. As the founder, I personally wanted to welcome you to your new AI CMO.<br><br>We built Okiza because modern marketing is fragmented and reactive. With Okiza as your autonomous AI CMO, our multi-agent studios continuously analyze competitor movements, optimize generative search engine visibility (GEO), and draft high-converting campaigns around the clock.<br><br>I would love to learn more about your brand and personally ensure our growth models are tuned to your exact goals. Would you be open to a quick 15-minute 1-on-1 walkthrough with me?",
       "buttonText": "Schedule 15-Min Founder Chat",
       "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/founder-meeting",
       "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
@@ -21,7 +21,7 @@
     "templateFile": "general-notification.html",
     "data": {
       "recipientName": "Alex Rivers",
-      "subject": "New Intelligence Alert Detected for Your Brand",
+      "subject": "Okiza AI CMO Alert: New Intelligence Detected",
       "message": "Okiza autonomous agents have detected 3 significant organic search rank changes and 2 new competitor advertising campaigns launched in the SaaS infrastructure category over the last 24 hours. A complete tactical response has been generated for your review.",
       "buttonText": "View Intelligence Alert",
       "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/dashboard",
@@ -34,8 +34,8 @@
     "templateFile": "welcome.html",
     "data": {
       "recipientName": "Sarah Connor",
-      "subject": "Welcome to Okiza — The AI Growth Operating System",
-      "message": "Welcome to the future of autonomous growth marketing. Okiza unifies competitor intelligence, AI-search visibility (GEO), autonomous content generation, and multi-channel campaign execution into one unified command center.",
+      "subject": "Welcome to Okiza — The AI CMO",
+      "message": "Welcome to the future of autonomous marketing. Okiza serves as your 24/7 AI CMO, unifying continuous competitor intelligence, AI-search visibility (GEO), autonomous content generation, and multi-channel campaign execution into one unified command center.",
       "buttonText": "Launch Growth Engine",
       "buttonUrl": "https://okiza-frontend-a9l9.vercel.app/dashboard",
       "siteUrl": "https://okiza-frontend-a9l9.vercel.app",
